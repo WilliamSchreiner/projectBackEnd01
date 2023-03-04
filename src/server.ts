@@ -13,7 +13,9 @@ const database = new Database();
 // response = parametro que esta vindo do CLIENTE
 app.get('/', (request, response ) => {
 
-  database.select("user");
+  const user = database.select("user");
+
+  response.json(user)
 });
 
 app.post('/', (request, response ) => {
