@@ -1,0 +1,12 @@
+### Test conexão
+GET http://localhost:3000
+
+### Test post
+
+POST http://localhost:3000
+content-type: application/json
+
+{
+    "name": "FEMA-chat",
+    "curso": "Tecnico em informatica"
+}
