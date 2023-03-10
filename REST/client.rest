@@ -1,9 +1,9 @@
 ### Test conexão
-GET http://localhost:3000
+GET https://3000-williamschr-projectback-u5njcs4hg69.ws-us90.gitpod.io
 
 ### Test post
 
-POST http://localhost:3000
+POST https://3000-williamschr-projectback-u5njcs4hg69.ws-us90.gitpod.io
 content-type: application/json
 
 {
