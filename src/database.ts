@@ -44,4 +44,19 @@ export class Database {
   }
 
 
+  delete(table:string, id:string){
+
+
+    //procura de id
+    const rowIndex  = this.#database[table].findIndex((row) => row.id === id)
+
+    //validando o id e delete
+    if(rowIndex > -1){
+      this.#database[table].slice(rowIndex, 1);
+      this.#persist();
+      
+    }
+  }
+
+
 }
