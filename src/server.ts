@@ -29,7 +29,7 @@ const user = {
 
   database.insert('user', user);
 
-response.status(201).send();
+response.status(201).send({msg:'ok'});
 });
 
 // precisa de uma porta e função de Call Back
