@@ -1,12 +1,18 @@
-### Test conexão
-GET https://3000-williamschr-projectback-u5njcs4hg69.ws-us90.gitpod.io
+### buscar ids
+GET http://localhost:3000
 
-### Test post
+### buscar Id unico
+GET http://localhost:3000/da8f506c-1455-450f-964f-2b523f064abf
 
-POST https://3000-williamschr-projectback-u5njcs4hg69.ws-us90.gitpod.io
+### inserir user
+
+POST http://localhost:3000
 content-type: application/json
 
 {
     "name": "nome",
     "email": "email.gg@gmail.com"
 }
+
+### deletar user
+delete http://localhost:3000/47dff139-5f9c-4d76-8f87-b8cd98879046
