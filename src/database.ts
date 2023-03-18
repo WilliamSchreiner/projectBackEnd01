@@ -2,8 +2,16 @@ import fs from 'node:fs/promises'
 
 const databasePath = new URL('../db.json', import.meta.url)
 
+interface IDatabase {
+
+  "id": string,
+  "name": string,
+  "email": string
+
+}
+
 export class Database {
-  #database:any = {};
+  #database: IDatabase[][] = [];
 
 
   constructor(){
@@ -23,7 +31,7 @@ export class Database {
     fs.writeFile(databasePath, JSON.stringify(this.#database, null, 2))
   }
 
-  select(table:string, id?: string):object {
+  select(table: any, id?: string): IDatabase[] {
     let data = this.#database[table] ?? []
     // ?? = um operador que verifica se o estado da condição esta NULL ou UNDER, se esta ele NULL ele alocar o espaço para um dado ja programado.
 
@@ -34,7 +42,7 @@ export class Database {
     return data
   }
 
-  insert(table: string, data:object):object {//espera uma objeto
+  insert(table: any, data:IDatabase): IDatabase {//espera uma objeto
 
     if(Array.isArray(this.#database[table])) {
       // add o dado
@@ -49,7 +57,7 @@ export class Database {
   }
 
 
-  delete(table:string, id:string){
+  delete(table:any, id:string): void{
 
 
     //procura de id
@@ -64,12 +72,12 @@ export class Database {
   }
 
 
-  update(table:string, id:string, data:object){
+  update(table:any, id:string, data:IDatabase): void{
 
     const rowIndex = this.#database[table].findIndex((row:any)=> row.id === id);
 
     if(rowIndex > -1) {
-      this.#database[table][rowIndex] = {id, ...data}
+      this.#database[table][rowIndex] = data
       // ... = desconstruir um objeto
       this.#persist()
     }
