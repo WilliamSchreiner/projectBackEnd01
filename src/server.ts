@@ -48,9 +48,10 @@ response.status(201).send({msg:'ok'});
 app.delete('/:id', (request, response) => {
   const {id} = request.params
 
-  const userExist = database.select(table, id);
+  const userExist:any = database.select(table, id);
 
-  if(userExist === undefined) response.status(400).json(
+  if(userExist === undefined)
+  return response.status(400).json(
     {msg:'Usuario nao encontrado'});
 
     database.delete(table, id)
@@ -59,6 +60,24 @@ app.delete('/:id', (request, response) => {
       {msg: `Usuario ${userExist.name} deletado` });
 
   //database.select(table, id)
+});
+
+app.put('/:id', (request,response)=>{
+
+  const {id} = request.params
+  const {name, email} = request.body
+
+  const userExist:any = database.select(table, id);
+
+  if(userExist === undefined)
+  return response.status(400).json(
+    {msg:'Usuario nao encontrado'});
+
+    database.update(table, id, {name,email})
+
+    response.status(201).json(
+      {msg: `Usuario ${userExist.name} foi alterado` });
+
 })
 
 // precisa de uma porta e função de Call Back.
