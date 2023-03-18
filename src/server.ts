@@ -73,10 +73,10 @@ app.put('/:id', (request,response)=>{
   return response.status(400).json(
     {msg:'Usuario nao encontrado'});
 
-    database.update(table, id, {name,email})
+    database.update(table, id, {name, email})
 
     response.status(201).json(
-      {msg: `Usuario ${userExist.name} foi alterado` });
+      {msg: `Usuario ${userExist.name} foi` });
 
 })
 
