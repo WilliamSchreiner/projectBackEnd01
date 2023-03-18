@@ -1,12 +1,12 @@
 ### buscar ids
-GET http://localhost:3000
+GET http://localhost:3000/user/
 
 ### buscar Id unico
-GET http://localhost:3000/da8f506c-1455-450f-964f-2b523f064abf
+GET http://localhost:3000/user/82a03a9e-fb73-4450-b4b6-171fb2717ed1
 
 ### inserir user
 
-POST http://localhost:3000
+POST http://localhost:3000/user/
 content-type: application/json
 
 {
@@ -15,13 +15,16 @@ content-type: application/json
 }
 
 ### deletar user
-delete http://localhost:3000/82a03a9e-fb73-4450-b4b6-171fb2717ed1
+delete http://localhost:3000/user/82a03a9e-fb73-4450-b4b6-171fb2717ed1
 
 ### Atualizar um usuario pelo ID
-PUT  http://localhost:3000/f82227d7-5253-4855-a576-7e3ddcf8364b
+PUT  http://localhost:3000/user/f82227d7-5253-4855-a576-7e3ddcf8364b
 content-type: application/json
 
 {
     "name": "nome2",
     "email": "email2.gg@gmail.com"
 }
+
+### buscar Ids pela rota USER
+GET http://localhost:3000/user/
