@@ -15,4 +15,13 @@ content-type: application/json
 }
 
 ### deletar user
-delete http://localhost:3000/47dff139-5f9c-4d76-8f87-b8cd98879046
+delete http://localhost:3000/82a03a9e-fb73-4450-b4b6-171fb2717ed1
+
+### Atualizar um usuario pelo ID
+PUT  http://localhost:3000/f82227d7-5253-4855-a576-7e3ddcf8364b
+content-type: application/json
+
+{
+    "name": "nome2",
+    "email": "email2.gg@gmail.com"
+}
