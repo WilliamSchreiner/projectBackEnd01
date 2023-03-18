@@ -64,4 +64,15 @@ export class Database {
   }
 
 
+  update(table:string, id:string, data:object){
+
+    const rowIndex = this.#database[table].findIndex((row:any)=> row.id === id);
+
+    if(rowIndex > -1) {
+      this.#database[table][rowIndex] = {id, ...data}
+      // ... = desconstruir um objeto
+      this.#persist()
+    }
+
+  }
 }
